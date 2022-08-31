@@ -2,14 +2,14 @@
 tournamentSchedule = { playingTeams: ["Mumbai", "Chennai", "Bangalore", "Punjab"], startDate: new Date() }
 //---------------------------------------------------------------------------------------------
 // Counting the Number of Matches
-function numberOfMatches(){
+function numberOfMatches() {
     count = 0
-for (i of tournamentSchedule.playingTeams) {
-    for (d = tournamentSchedule.playingTeams.indexOf(i) + 1; d < tournamentSchedule.playingTeams.length; d++) {
-        count++
+    for (i of tournamentSchedule.playingTeams) {
+        for (d = tournamentSchedule.playingTeams.indexOf(i) + 1; d < tournamentSchedule.playingTeams.length; d++) {
+            count++
+        }
     }
-}
-console.log("Number of Matches:",count)
+    console.log("Number of Matches:", count)
 }
 var numberOfRounds = tournamentSchedule.playingTeams.length - 1;
 //---------------------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ var sunday = new Date(tournamentSchedule.startDate)
 dateList = []
 for (let i = 0; i <= 6; i++) {
     if (d.getDay() + i == 6) {
-        saturday.setDate(d.getDate() +i+ 1)
-        sunday.setDate(d.getDate() + i )
+        saturday.setDate(d.getDate() + i + 1)
+        sunday.setDate(d.getDate() + i)
     }
 }
 //---------------------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ for (e = 0; e <= rivalTeams.length / 4; e++) {
 //---------------------------------------------------------------------------------------------
 // Scheduling the Teams
 count = 0
-id=1
+id = 1
 matchList = []
 console.log("\n")
 console.log("******************************************    Match Schedule     **********************************************")
@@ -82,22 +82,22 @@ for (i = 0; i < rivalTeams.length; i = i + 2) {
     slotOne = {}
     slotTwo = {}
     d = i
-    slotOne["ID"]="M"+id
+    slotOne["ID"] = "M" + id
     slotOne["Match_No"] = i + 1
     slotOne["Match"] = rivalTeams[i]
     slotOne["Date"] = dateList[count]
     slotOne["Day"] = day[count]
-    slotOne["Venue"]="Wankhede"
-    slotOne["Time"]="3:30PM IST"
+    slotOne["Venue"] = "Wankhede"
+    slotOne["Time"] = "3:30PM IST"
     id++
     if (rivalTeams[d + 1] != "None") {
-        slotTwo["ID"]="M"+id
+        slotTwo["ID"] = "M" + id
         slotTwo["Match_No"] = i + 2
         slotTwo["Match"] = rivalTeams[d + 1]
         slotTwo["Date"] = dateList[count]
         slotTwo["Day"] = day[count]
-        slotTwo["Venue"]="Chepauk"
-        slotTwo["Time"]="7:30PM IST"
+        slotTwo["Venue"] = "Chepauk"
+        slotTwo["Time"] = "7:30PM IST"
     }
     matchList.push(slotOne)
     matchList.push(slotTwo)
@@ -116,9 +116,9 @@ matchList.forEach(element => {
 });
 //---------------------------------------------------------------------------------------------
 // Finding Match details by ID
-function findById(id){
-    match=matchList.filter(n=>n.ID.includes(id))
-    match.forEach(element=>{
+function findById(id) {
+    match = matchList.filter(n => n.ID.includes(id))
+    match.forEach(element => {
         console.log(element)
     })
 }

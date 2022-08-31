@@ -130,3 +130,13 @@ matchList.forEach(element => {
     console.log("---------------------------------------------------------------------------------------------------------------")
     console.log("\n")
 });
+//---------------------------------------------------------------------------------------------
+// Finding Match details by ID
+function findById(id: string) {
+    let match = matchList.filter(n => n.ID.includes(id))
+    match.forEach(element => {
+        console.log(element)
+    })
+}
+findById("M1")
+//---------------------------------------------------------------------------------------------
